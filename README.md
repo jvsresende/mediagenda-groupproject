@@ -100,11 +100,3 @@ Porta: 3306
 - Arthur Garlati
 - Luciana Carolline
 
-## Entrega
-
-A entrega deve conter:
-
-- link do repositorio no GitHub;
-- este arquivo `README.md`;
-- nomes completos dos integrantes;
-- arquivo `script.sql` atualizado.
