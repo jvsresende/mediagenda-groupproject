@@ -1,34 +1,22 @@
 # MediAgenda
 
-Sistema web para gerenciamento de consultas medicas, desenvolvido em PHP com MySQL/MariaDB, HTML5, CSS3, Bootstrap e JavaScript.
+Sistema web para gerenciamento e agendamento de consultas medicas desenvolvido em PHP durante as aulas de Programacao II e melhorado em grupo.
 
-## Descricao
+---
 
-O MediAgenda permite acompanhar a agenda de consultas, cadastrar agendamentos, gerenciar medicos e manter o cadastro de especialidades medicas usadas no sistema.
+# Sobre o Projeto
 
-## Funcionalidades Implementadas
+O MediAgenda e uma aplicacao desenvolvida para auxiliar no gerenciamento de consultas medicas, permitindo:
 
-- Login de usuario.
-- Visualizacao da agenda mensal.
-- Cadastro, listagem, edicao e cancelamento de agendamentos.
-- CRUD completo de medicos:
-  - cadastro;
-  - listagem com filtros;
-  - edicao;
-  - inativacao;
-  - exclusao definitiva somente quando nao houver agendamentos vinculados;
-  - relacionamento com especialidades.
-- CRUD completo de especialidades:
-  - cadastro;
-  - listagem com filtros;
-  - edicao;
-  - inativacao;
-  - exclusao definitiva somente quando nao houver vinculos;
-  - integracao com medicos e agendamentos.
-- Navegacao lateral corrigida para agenda, medicos e especialidades.
-- Banco de dados com tabelas, relacionamentos e views atualizadas.
+- Login de usuarios.
+- Visualizacao de agenda mensal.
+- Cadastro e gerenciamento de agendamentos.
+- Cadastro, listagem, edicao, inativacao e exclusao de medicos.
+- Cadastro, listagem, edicao, inativacao e exclusao de especialidades.
+- Cancelamento de consultas.
+- Dashboard com calendario.
 
-## Tecnologias Utilizadas
+O projeto foi desenvolvido utilizando conceitos de:
 
 - PHP
 - MySQL / MariaDB
@@ -38,30 +26,134 @@ O MediAgenda permite acompanhar a agenda de consultas, cadastrar agendamentos, g
 - JavaScript
 - SweetAlert2
 - Docker e Docker Compose
+- Git e GitHub
 
-## Como Executar
+---
 
-1. Suba os containers:
+# Estrutura do Projeto
+
+```text
+mediagenda-groupproject/
+|
+|-- docker-compose.yml
+|-- dockerfile
+|-- Dockerfile.node
+|-- script.sql
+|-- README.md
+|
+|-- www/
+|   |-- login.php
+|   |-- cadastrobanco.php
+|   |-- principal.php
+|   |-- logout.php
+|   |-- conexao.php
+|   |-- cadastro_agendas.php
+|   |-- cadastro_medicos.php
+|   |-- cadastro_especialidades.php
+|   |-- cancelar_agendamento.php
+|   |-- img/
+|
+|-- nodejs/
+|   |-- server.js
+|   |-- conexao.js
+|   |-- package.json
+|   |-- public/
+```
+
+---
+
+# Banco de Dados
+
+O sistema utiliza MySQL.
+
+O arquivo:
+
+```text
+script.sql
+```
+
+contem:
+
+- criacao do banco;
+- tabelas;
+- relacionamentos;
+- views utilizadas pelo sistema;
+- usuarios iniciais para acesso.
+
+Configuracao padrao do banco no Docker:
+
+```text
+Host interno: mysql
+Host pelo Workbench: localhost
+Porta: 3306
+Usuario: root
+Senha: root123
+Banco: mediagenda
+```
+
+---
+
+# Como Executar
+
+## 1. Iniciar o Docker
+
+Abra o Docker Desktop e aguarde o engine ficar ativo.
+
+Se ja existir outro MySQL usando a porta 3306, pare esse servico antes de iniciar o projeto.
+
+---
+
+## 2. Subir os containers
+
+Na pasta do projeto, execute:
 
 ```bash
 docker compose up -d
 ```
 
-2. Acesse o phpMyAdmin:
+---
+
+## 3. Importar o banco
+
+Importe o arquivo:
 
 ```text
-http://localhost:8081
+script.sql
 ```
 
-3. Importe o arquivo `script.sql` no banco `mediagenda`.
+no banco:
 
-4. Acesse o sistema:
+```text
+mediagenda
+```
+
+Tambem e possivel importar pelo phpMyAdmin.
+
+---
+
+## 4. Acessar o sistema
+
+Sistema:
 
 ```text
 http://localhost:8080/login.php
 ```
 
-5. Use um dos logins iniciais:
+phpMyAdmin:
+
+```text
+http://localhost:8081
+```
+
+Node.js:
+
+```text
+http://localhost:3000
+```
+
+---
+
+# Logins Iniciais
 
 ```text
 Usuario: aluno
@@ -73,30 +165,49 @@ Usuario: professor
 Senha: professor123
 ```
 
-## Configuracao do Banco
+---
 
-A conexao fica em:
+# Integrantes do Grupo
 
-```text
-www/conexao.php
-```
-
-Configuracao padrao para Docker:
-
-```text
-Host: mysql
-Usuario: root
-Senha: root123
-Banco: mediagenda
-Porta: 3306
-```
-
-## Integrantes do Grupo
-
-- João Víctor Souza Resende
+- Joao Victor Souza Resende
 - Leticia Gomes
 - Mel Borges
 - Arthur Miguel
 - Arthur Garlati
 - Luciana Carolline
 
+---
+
+# Objetivo Academico
+
+Este projeto possui finalidade educacional e foi desenvolvido como atividade pratica da disciplina de Programacao II.
+
+---
+
+# Funcionalidades Futuras
+
+- Responsividade mobile.
+- Notificacoes de consultas.
+- Relatorios.
+- Controle de perfis de acesso.
+- Publicacao em nuvem.
+
+---
+
+# Tecnologias Utilizadas
+
+| Tecnologia | Finalidade |
+|---|---|
+| PHP | Back-end |
+| MySQL | Banco de dados |
+| Bootstrap 5 | Interface |
+| JavaScript | Interatividade |
+| SweetAlert2 | Alertas |
+| Docker | Ambiente de execucao |
+| Git/GitHub | Versionamento |
+
+---
+
+# Observacao
+
+Projeto desenvolvido para fins academicos e aprendizado de desenvolvimento web com PHP e banco de dados relacional.
